@@ -1,17 +1,33 @@
+<!doctype html>
+<html lang="en">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+<head>
+    <script>
+        function Search() {
+            $.ajax({
+                type: "POST",
+                url: "backend.php",
+                data: {
+                    "type": "search",
+                    "id": $("#search_id").val()
+                },
+                dataType: "json",
+                success: function (str) {
+                    document.getElementById('result').innerHTML = str.name;
+                },
+                error: function (e) {
+                    alert('something wrong');
+                },
+                beforeSend: function() {
+                    // 發送中                
+                }
+            });
+        }
+    </script>
+</head>
 <body>
-    <form id="form1" runat="server">
-        
-        <asp:ScriptManager runat="server" />
-        <asp:UpdatePanel runat="server">
-            <ContentTemplate>
-                <asp:Timer ID="timer" runat="server" OnTick="timer_Tick" />
-                <asp:Label ID="show1" runat="server" Text="Label 1" />
-                <br/>
-                <asp:Label ID="show2" runat="server" Text="Label 2" />
-            </ContentTemplate>
-        </asp:UpdatePanel>
-
-        <asp:Button id="btn" runat="server" OnClick="btn_Click" Text="開始計時" />
-
-    </form>
+    我是：<span id="result"></span>！    <hr />
+    <input id="search_id" />
+<button onclick="Search()">搜尋</button>
 </body>
+</html>
