@@ -1,33 +1,14 @@
-<!doctype html>
-<html lang="en">
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
-<head>
-    <script>
-        function Search() {
-            $.ajax({
-                type: "POST",
-                url: "backend.php",
-                data: {
-                    "type": "search",
-                    "id": $("#search_id").val()
-                },
-                dataType: "json",
-                success: function (str) {
-                    document.getElementById('result').innerHTML = str.name;
-                },
-                error: function (e) {
-                    alert('something wrong');
-                },
-                beforeSend: function() {
-                    // 發送中                
-                }
-            });
-        }
-    </script>
-</head>
-<body>
-    我是：<span id="result"></span>！    <hr />
-    <input id="search_id" />
-<button onclick="Search()">搜尋</button>
-</body>
-</html>
+<HTML>
+<HEAD>    
+	<TITLE> meta 標籤的使用：中文網頁 </TITLE>
+	<META http-equiv="Content-Type" content="text/html; charset=Shift_JIS">
+	<META HTTP-EQUIV="REFRESH" CONTENT="1"> 
+</HEAD>
+<BODY>
+
+這是一個繁體中文網頁！<br>
+(This page uses big5 character set.)<br>
+charset=Shift_JIS
+
+</BODY>
+</HTML>
