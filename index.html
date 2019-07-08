@@ -10,6 +10,14 @@
 這是一個繁體中文網頁！<br>
 (This page uses big5 character set.)<br>
 charset=Shift_JIS
+	
+	import requests
+
+r = requests.get("https://www.imdb.com/title/tt4154796")
+html_str = r.text
+print(r.status_code)
+print(type(r))
+print(type(html_str))
 
 </body>
 </html>
